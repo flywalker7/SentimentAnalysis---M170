@@ -25,8 +25,8 @@ train_texts, val_texts, train_labels, val_labels = train_test_split(data['review
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
 # Tokenize the training and validation texts
-train_encodings = tokenizer(train_texts.tolist(), truncation=True, padding=True, max_length=128)  # Adjust max_length if necessary
-val_encodings = tokenizer(val_texts.tolist(), truncation=True, padding=True, max_length=128)
+train_encodings = tokenizer(train_texts.tolist(), truncation=True, padding=True, max_length=32)  # Adjust max_length if necessary
+val_encodings = tokenizer(val_texts.tolist(), truncation=True, padding=True, max_length=32)
 
 # Define a custom dataset class for PyTorch
 class Dataset(torch.utils.data.Dataset):
@@ -51,8 +51,8 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 training_args = TrainingArguments(
     output_dir='./results',  # Directory to save results
     num_train_epochs=3,  # Number of training epochs, start with 1
-    per_device_train_batch_size=4,  # Reduce batch size for training
-    per_device_eval_batch_size=4,  # Reduce batch size for evaluation
+    per_device_train_batch_size=1,  # Reduce batch size for training
+    per_device_eval_batch_size=1,  # Reduce batch size for evaluation
     warmup_steps=100,  # Fewer warmup steps
     weight_decay=0.01,  # Weight decay for regularization
     logging_dir='./logs',  # Directory to save logs

@@ -6,7 +6,7 @@ import torch
 
 # Load your dataset
 # Specify the path to your CSV file
-csv_file_path = r'C:\Users\charisis\Downloads\archive\IMDB Dataset.csv'  # Use a raw string for the file path
+csv_file_path = r'C:\Users\Γιωργος\Downloads\IMDB Dataset.csv'  # Use a raw string for the file path
 
 # Load the CSV file into a pandas DataFrame
 data = pd.read_csv(csv_file_path)

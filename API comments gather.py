@@ -79,7 +79,7 @@ def fetch_reviews(url, params, total_reviews):
     return reviews
 
 # Parameters
-total_reviews = 10000
+total_reviews = 30000
 
 # Fetch reviews
 reviews = fetch_reviews(url, params, total_reviews)
